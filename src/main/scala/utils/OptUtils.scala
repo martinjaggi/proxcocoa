@@ -125,11 +125,10 @@ object OptUtils {
 
   /**
   * Computes the primal objective function value for elastic net regression:
-  *   1/(2n)||y-x'w||_2^2 + \lambda * (eta*||w||_1 + (1-eta)*.5*||w||_2^2)
-  * Caution: use for debugging purposes. This is an expensive operation, 
-  *   taking one full pass through the data
+  *   1/(2n)||y-A'w||_2^2 + \lambda * (eta*||w||_1 + (1-eta)*.5*||w||_2^2)
+  * Caution: use for debugging purposes (only if a correct residual vector is available).
   *
-  * @param z residual vector
+  * @param z residual vector,  z = y-A'w
   * @param w primal vector
   * @param lambda regularization parameter
   * @param eta elastic net parameter
